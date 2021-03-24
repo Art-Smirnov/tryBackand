@@ -2,6 +2,8 @@ const express = require('express');
 const exhbs = require('express-handlebars');
 const menu = require('./menu.json');
 
+const PORT = process.env.PORT || 4444;
+
 const app = express();
 
 app.use(express.static('public'));
@@ -32,6 +34,6 @@ app.get('/menu/:menuItemId', (req, res) => {
   res.render('menuItem', { menuItem });
 });
 
-app.listen(4444, () => {
+app.listen(PORT, () => {
   console.log('sldfjkfn');
 });
