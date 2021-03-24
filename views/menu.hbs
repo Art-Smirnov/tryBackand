@@ -1,0 +1,57 @@
+<div class="toolbar">
+  <!-- Разметка переключателя темы -->
+  <div class="theme-switch">
+    <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
+      <use href="./images/sprite.svg#sun"></use>
+    </svg>
+
+    <div class="theme-switch__control">
+      <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle"
+        aria-label="Переключить между тёмной и светлой темой" />
+      <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
+      </label>
+      <div aria-hidden="true" class="theme-switch__marker"></div>
+    </div>
+
+    <svg class="theme-switch__icon" aria-label="Иконка луны">
+      <use href="./images/sprite.svg#moon"></use>
+    </svg>
+  </div>
+</div>
+
+<!-- В этот список рендери разметку меню -->
+<ul class="menu js-menu">
+  {{#each menu}}
+  <li class="menu__item">
+    <a href="/menu/{{id}}">
+      <article class="card">
+        <img src="{{image}}" alt="{{name}}" class="card__image" />
+        <div class="card__content">
+          <h2 class="card__name">{{name}}</h2>
+          <p class="card__price">
+            <i class="material-icons"> monetization_on </i>
+            {{price}} кредитов
+          </p>
+
+          <p class="card__descr">
+            {{description}}
+          </p>
+
+          <ul class="tag-list">
+
+            {{#each ingredients}}
+            <li class="tag-list__item">{{this}}</li>
+            {{/each}}
+
+          </ul>
+        </div>
+
+        <button class="card__button button">
+          <i class="material-icons button__icon"> shopping_cart </i>
+          В корзину
+        </button>
+      </article>
+    </a>
+  </li>
+  {{/each}}
+</ul>
